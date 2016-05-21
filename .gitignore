@@ -1,2 +1,4 @@
 /node_modules/*
-.sass-cache
+/.sass-cache/*
+/sass/libs/bootstrap/*
+/sass/libs/bourbon/*

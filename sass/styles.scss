@@ -1,4 +1,11 @@
 /*Reset, Framework, and Variables*/
-@import "partials/_bootstrap";
-@import "partials/_variables";
+@import "libs/_bootstrap";
 @import "partials/_base";
+
+/*Libraries*/
+@import "libs/_loading-bar";
+@import "fonts/font-awesome";
+
+/*Custom*/
+@import "partials/_nav";
+@import "partials/_home";

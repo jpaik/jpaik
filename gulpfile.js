@@ -11,7 +11,9 @@ var gulp = require('gulp'),
     notify = require('gulp-notify'),
     cache = require('gulp-cache'),
     livereload = require('gulp-livereload'),
-    del = require('del');
+    del = require('del'),
+    merge = require('merge-stream'),
+    addsrc = require('gulp-add-src');
 
 /*Create Tasks*/
 
@@ -28,14 +30,21 @@ gulp.task('styles', function(){
 
 //Javascript Compilation and Minification Task
 gulp.task('scripts', function(){
-  return gulp.src('scripts/**/*.js')
+  var lib = gulp.src(['scripts/**/*.js', '!scripts/app/*.js'])
     .pipe(jshint('.jshintrc'))
     .pipe(jshint.reporter('default'))
-    .pipe(concat('main.js'))
-    .pipe(gulp.dest('assets/js'))
-    .pipe(rename({suffix: '.min'}))
     .pipe(uglify())
+    .pipe(concat('main.js'))
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulp.dest('assets/js'));
+
+  var scripts = gulp.src('scripts/app/*.js')
+    .pipe(jshint('.jshintrc'))
+    .pipe(jshint.reporter('default'))
+    .pipe(concat('app.js'))
     .pipe(gulp.dest('assets/js'))
+
+  return merge(scripts, lib)
     .pipe(notify({message: 'Javascript task complete'}));
 });
 
@@ -49,7 +58,13 @@ gulp.task('images', function(){
 
 //Delete old files to rebuild
 gulp.task('clean', function(){
-  return del(['assets/css','assets/js','assets/images']);
+  return del(['assets/css','assets/js/*.js','assets/images']);
+});
+gulp.task('clean-styles', function(){
+  return del(['assets/css']);
+});
+gulp.task('clean-scripts', function(){
+  return del(['assets/js/*.js']);
 });
 
 //Make a default task that runs
@@ -59,7 +74,7 @@ gulp.task('default', ['clean'], function(){
 
 /*Watch the files for changes to run tasks*/
 gulp.task('watch', function(){
-  gulp.watch('sass/**/*.scss', ['styles']);
-  gulp.watch('scripts/**/*.js', ['scripts']);
+  gulp.watch('sass/**/*.scss', ['clean-styles','styles']);
+  gulp.watch('scripts/**/*.js', ['clean-scripts','scripts']);
   gulp.watch('images/**/*', ['images']);
 });

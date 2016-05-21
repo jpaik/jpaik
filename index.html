@@ -3,22 +3,80 @@
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+  <meta name="fragment" content="!">
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1" />
+  <title>James Paik | Front End Developer</title>
+  <meta name="author" content="James Paik" />
+  <meta name="copyright" content="James Paik"/>
+  <meta name="description" content="James Paik - Front End Developer | Entrepreneur | Software Engineer">
+  <meta name="keywords" content="James Paik, jpaik123, jpaik14, jpaik, Paik, jpaik.me">
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="author" content="James Paik" />
-    <title>James Paik</title>
-    <meta name="description" content="James Paik - Front End Developer | Entrepreneur | Software Engineer">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <!-- Robots -->
+  <meta name="robots" content="index, follow">
+  <meta name="location" content="New Jersey">
+  <link rel="icon" type="image/png" href="assets/favicon.ico" />
 
-    <link href="assets/css/styles.css" rel="stylesheet" type="text/css" />
-    <script src="assets/js/main.js"></script>
-  </head>
+  <!-- Facebook Tags -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="James Paik | Front End Developer"/>
+  <meta property="og:site_name" content="James Paik | Front End Developer"/>
+  <meta property="og:url" content="http://jpaik.me/"/>
+  <meta property="og:image" content=""/>
+  <meta property="og:description" content="James Paik - Front End Developer | Entrepreneur | Software Engineer">
 
-  <body>
-    <h1>Hello World!</h1>
-  </body>
+  <!-- Twitter Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@jpaik14">
+  <meta name="twitter:creator" content="@jpaik14">
+  <meta name="twitter:title" content="James Paik | Front End Developer">
+  <meta name="twitter:description" content="James Paik - Front End Developer | Entrepreneur | Software Engineer">
+  <meta name="twitter:image:src" content="">
+
+  <!-- Google Tags -->
+  <meta itemprop="name" content="James Paik">
+  <meta itemprop="description" content="James Paik - Front End Developer | Entrepreneur | Software Engineer">
+  <meta itemprop="image" content="">
+
+  <!--CSS and JS-->
+  <link href="assets/css/styles.min.css" rel="stylesheet" type="text/css" />
+  <script src="assets/js/main.min.js"></script>
+  <script src="assets/js/app.js"></script>
+
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body ng-app="jpaik">
+
+  <header class="header navbar-fixed-top">
+    <div class="container">
+      <a href="/" class="logo">James Paik</a>
+      <a href="#" class="menu-trigger">Menu<span></span></a>
+    </div>
+  </header>
+
+  <main>
+    <div ng-view class="fade"></div>
+  </main>
+
+  <nav class="nav-container">
+    <ul class="nav">
+      <li class="selected"><a href="/">About</a></li>
+      <li><a href="portfolio">Portfolio</a></li>
+      <li><a href="contact">Contact</a></li>
+      <li><a href="#">Blog</a></li>
+    </ul>
+    <span class="marker color-1"></span>
+  </nav>
+
+  <script src="assets/js/lib/nav.js"></script>
+
+</body>
 
 </html>

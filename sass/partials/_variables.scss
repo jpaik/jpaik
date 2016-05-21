@@ -1,3 +1,24 @@
-$black: #000;
-$white: #fff;
-$green: #00ff00;
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+
+// colors
+$body-bg: #fff;
+$nav-container-bg: #000000; // black
+$nav-bg: darken($body-bg, 10%);
+$text-color: #000;
+
+$color-1: #9a57bd; // Amethyst (purple)
+$color-2: #c96aa4; // Hopbush (pink)
+$color-3: #d6915e; // Di Serria (wheat)
+$color-4: #5397c7; // Danube (light blue)
+$color-5: #77cd91; // De York (light green)
+
+// fonts
+$primary-font: 'Open Sans', sans-serif;
+
+// navigation
+$nav-height-S: 50px;
+$nav-height-M: 100px;
+$nav-items: 4;
+
+// animation
+$animation-duration: 0.5s;
