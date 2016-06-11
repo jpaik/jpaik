@@ -2,13 +2,35 @@
 @import 'variables';
 @import 'layout';
 
+html, body{
+  height: 100%;
+  width:100%;
+}
+
+body{
+  background: linear-gradient(225deg, #5c258d, #348ac7, #4389a2, #7474bf);
+  background-size: 800% 800%;
+  -webkit-animation: BgGradient 30s ease infinite;
+  -moz-animation: BgGradient 30s ease infinite;
+  -o-animation: BgGradient 30s ease infinite;
+  animation: BgGradient 30s ease infinite;
+
+  &.gradone{
+    background: linear-gradient(225deg, #5c258d, #348ac7, #4389a2, #7474bf);
+    background-size: 800% 800%;
+    -webkit-animation: BgGradient 30s ease infinite;
+    -moz-animation: BgGradient 30s ease infinite;
+    -o-animation: BgGradient 30s ease infinite;
+    animation: BgGradient 30s ease infinite;
+  }
+}
+
 .fade {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     height: 100%;
-    background: black;
     opacity: 1;
     &.ng-enter{
       @include view-animation;
@@ -61,11 +83,42 @@ main {
   .container{
     width:100%;
     padding: 0;
-
     .row{
-      margin:0;
+      margin: 0px;
+    }
+  }
+
+  #home{
+    h1{
+      color:white;
+      font:{
+        size: 4em;
+        weight: 400;
+      }
+    }
+    p{
+      color: white;
+      font:{
+        size: 2em;
+        weight:300;
+      }
+    }
+    .row{
       margin-top: 80px;
     }
+  }
+
+  .tblock{
+    background: none;
+    h1,p{
+      color: white;
+    }
+  }
+
+  .wblock{
+    background-color: white;
+    padding-top: 2em;
+    padding-bottom: 2em;
   }
 
 }
@@ -73,4 +126,25 @@ main {
 .form-horizontal .form-group{
   margin-left: 0px;
   margin-right: 0px;
+}
+
+@-webkit-keyframes BgGradient {
+    0%{background-position:0% 97%}
+    50%{background-position:100% 4%}
+    100%{background-position:0% 97%}
+}
+@-moz-keyframes BgGradient {
+    0%{background-position:0% 97%}
+    50%{background-position:100% 4%}
+    100%{background-position:0% 97%}
+}
+@-o-keyframes BgGradient {
+    0%{background-position:0% 97%}
+    50%{background-position:100% 4%}
+    100%{background-position:0% 97%}
+}
+@keyframes BgGradient {
+    0%{background-position:0% 97%}
+    50%{background-position:100% 4%}
+    100%{background-position:0% 97%}
 }

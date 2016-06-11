@@ -7287,7 +7287,7 @@ button.close {
   background: #29d;
   position: fixed;
   z-index: 10002;
-  top: 60px;
+  top: 50px;
   left: 0;
   width: 100%;
   height: 2px;
@@ -10203,17 +10203,21 @@ Main Components
 .header {
   height: 50px;
   width: 100%;
-  margin: 5px 0 5px;
-  background-color: rgba(255, 255, 255, 0.5);
+  margin: 0px;
   transition: transform 0.5s;
   /* Force Hardware Acceleration in WebKit */
   transform: translateZ(0);
   backface-visibility: hidden;
+  transition: background-color 1s ease, transform .5s;
 }
 .header::after {
   clear: both;
   content: "";
   display: table;
+}
+.header.floating {
+  background-color: rgba(0, 0, 0, 0.7);
+  transition: background-color 1s ease, transform .5s;
 }
 .header.nav-is-visible {
   transform: translateY(50px);
@@ -10232,7 +10236,7 @@ Main Components
   float: left;
   margin-top: 13px;
   text-decoration: none;
-  color: #000;
+  color: white;
   transition: all 1s ease;
 }
 .logo:hover {
@@ -10260,7 +10264,7 @@ Main Components
   position: absolute;
   width: 28px;
   height: 3px;
-  background-color: #000;
+  background-color: #fff;
   backface-visibility: hidden;
 }
 .menu-trigger span {
@@ -10283,11 +10287,11 @@ Main Components
 }
 .nav-is-visible .menu-trigger span {
   /* hide line in the center */
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0);
 }
 .nav-is-visible .menu-trigger span::before, .nav-is-visible .menu-trigger span::after {
   /* keep visible other 2 lines */
-  background-color: black;
+  background-color: white;
 }
 .nav-is-visible .menu-trigger span::before {
   transform: translateY(8px) rotate(-45deg);
@@ -10494,13 +10498,28 @@ Main Components
   background-color: #77cd91;
 }
 
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: linear-gradient(225deg, #5c258d, #348ac7, #4389a2, #7474bf);
+  background-size: 800% 800%;
+  animation: BgGradient 30s ease infinite;
+}
+body.gradone {
+  background: linear-gradient(225deg, #5c258d, #348ac7, #4389a2, #7474bf);
+  background-size: 800% 800%;
+  animation: BgGradient 30s ease infinite;
+}
+
 .fade {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 100%;
-  background: black;
   opacity: 1;
 }
 .fade.ng-enter {
@@ -10553,11 +10572,45 @@ main .container {
   padding: 0;
 }
 main .container .row {
-  margin: 0;
+  margin: 0px;
+}
+main #home h1 {
+  color: white;
+  font-size: 4em;
+  font-weight: 400;
+}
+main #home p {
+  color: white;
+  font-size: 2em;
+  font-weight: 300;
+}
+main #home .row {
   margin-top: 80px;
+}
+main .tblock {
+  background: none;
+}
+main .tblock h1, main .tblock p {
+  color: white;
+}
+main .wblock {
+  background-color: white;
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 
 .form-horizontal .form-group {
   margin-left: 0px;
   margin-right: 0px;
+}
+@keyframes BgGradient {
+  0% {
+    background-position: 0% 97%;
+  }
+  50% {
+    background-position: 100% 4%;
+  }
+  100% {
+    background-position: 0% 97%;
+  }
 }

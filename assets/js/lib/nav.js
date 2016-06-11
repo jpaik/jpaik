@@ -1,4 +1,6 @@
 jQuery(document).ready(function($){
+
+	var $window = $( window );
 	$.fn.removeClassPrefix = function(prefix) {
 	    this.each(function(i, el) {
 	        var classes = el.className.split(" ").filter(function(c) {
@@ -16,14 +18,14 @@ jQuery(document).ready(function($){
 
 	$('main').on('click', function(){
 		toggle3dBlock(false);
-		$('#loading-bar .bar').css('top','60px');
+		$('#loading-bar .bar').css('top','50px');
 	});
 
 	$('.logo').on('click', function(){
 		var selected = $('.nav > li > a:first');
 		selected.parent('li').addClass('selected').siblings('li').removeClass('selected');
 		updateSelectedNav('close');
-		setTimeout(function(){$('#loading-bar .bar').css('top','60px')},600);
+		setTimeout(function(){$('#loading-bar .bar').css('top','50px')},600);
 	});
 
 	if(window.location.href.indexOf("contact") > -1) {
@@ -77,4 +79,14 @@ jQuery(document).ready(function($){
 			});
 		}
 	}
+
+	var toggleHeaderFloating = function() {
+			// Floating Header
+			if ( $window.scrollTop() > 80 ) {
+				$( '.header' ).addClass( 'floating' );
+			} else {
+				$( '.header' ).removeClass( 'floating' );
+			};
+		};
+	$window.on( 'scroll', toggleHeaderFloating );
 });
